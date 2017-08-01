@@ -2,10 +2,14 @@
 var weatherInfo = $('#weather-info'),
 		body = document.body,
 		ul = document.createElement('ul'),
-		city = document.createElement('li'),
+		city = document.createElement('li');
+			city.setAttribute('class', 'city'),
 		temp = document.createElement('li'),
+			temp.setAttribute('class', 'temp'),
 		description = document.createElement('li'),
-		wind = document.createElement('li');
+			description.setAttribute('class', 'description'),
+		wind = document.createElement('li'),
+			wind.setAttribute('class', 'wind');
 
 ul.append(city, temp, description, wind);
 weatherInfo.append(ul);
@@ -26,13 +30,13 @@ $(document).ready(function($) {
 	.done(function(data){
 		console.log(data);
     city.append(data.name);
-    temp.append(Math.round((data.main.temp-273.15)*1.8+32));
+    temp.append(Math.round((data.main.temp-273.15)*1.8+32) + String.fromCharCode(176));
     description.append(data.weather[0].description);
-    wind.append(data.wind.speed);
+    wind.append('Wind: ' + data.wind.speed + '/mph');
 	})
  .fail(function() {
 
- 	console.log("error");
+ 	alert("The city you entered does not seem to exist");
 
 	});
 

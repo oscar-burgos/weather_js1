@@ -1,7 +1,50 @@
+.container-fluid {
+  height: 150px;
+  background-color: #0000aa;
+}
+
+form {
+  text-align: center;
+  transform: translateY(50%);
+}
+
 input {
+  height: 50px;
+  width: 300px;
+  background-color: #fff;
+  border-width: 0px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+#submit-button {
+  display: block;
+  text-align: center;
+  border-radius: 5px;
   height: 25px;
+  width: 75px;
+}
+
+#weather-info {
+  text-align: center;
 }
 
 ul {
   list-style-type: none;
+}
+
+.city {
+  font-size: 50px;
+}
+
+.temp {
+  font-size: 100px;
+}
+
+.description {
+  font-size: 35px;
+}
+
+.wind {
+  font-size: 25px;
 }

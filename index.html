@@ -7,15 +7,19 @@
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 </head>
 <body>
+<div class="container-fluid">
+	<div class="col-sm-12 center-block">
+		<form class="center-block">
+	    <input id="location" type="text" placeholder="Search by Location">
+	    <span>or</span>
+	    <input id="zip" type="text" placeholder="Search by Zip">
+			<input id="submit-button" class="btn btn-default center-block" type="submit" value="Submit">
+	  </form>
+	</div>
+</div>
 
-  <form>
-    <input id="location" type="text" placeholder="Search by Location">
-    <span>or</span>
-    <input id="zip" type="text" placeholder="Search by Zip">
-    <button id="submit-button">submit</button>
-  </form>
 <!--  -->
-  <div id="weather-info"></div>
+  <div  class="center-block" id="weather-info"></div>
 
 	<script
   src="https://code.jquery.com/jquery-3.2.1.min.js"
