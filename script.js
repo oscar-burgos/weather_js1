@@ -1,8 +1,21 @@
+// variables
+var weatherInfo = $('#weather-info'),
+		body = document.body,
+		ul = document.createElement('ul'),
+		city = document.createElement('li'),
+		temp = document.createElement('li'),
+		description = document.createElement('li'),
+		wind = document.createElement('li');
+
+ul.append(city, temp, description, wind);
+weatherInfo.append(ul);
+console.log(ul);
+
 // Button
 document.getElementById('submit-button').addEventListener('click', function(event) {
   event.preventDefault();
 
-// Ajax
+// Ajax call
 $(document).ready(function($) {
 
 	$.ajax({
@@ -12,29 +25,17 @@ $(document).ready(function($) {
 
 	.done(function(data){
 		console.log(data);
-    weatherInfo.append(data.name);
-    weatherInfo.append(data.main.temp);
-    weatherInfo.append(data.weather[0].description);
-    weatherInfo.append(data.wind.speed);
+    city.append(data.name);
+    temp.append(Math.round((data.main.temp-273.15)*1.8+32));
+    description.append(data.weather[0].description);
+    wind.append(data.wind.speed);
 	})
  .fail(function() {
 
  	console.log("error");
 
-});
-
-
-
-
-// Get user input
-
-
-var weatherInfo = $('#weather-info');
-
-
+	});
 
 });
-
-
 
 });
