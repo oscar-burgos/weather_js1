@@ -1,7 +1,7 @@
 /* Header Section */
 
 .container-fluid {
-  height: 150px;
+  height: 200px;
   background: linear-gradient(to bottom, #005071, #317a9b);
 }
 
@@ -23,6 +23,10 @@ input {
   font-size: 20px;
 }
 
+#zip {
+  font-size: 20px;
+}
+
 span {
   margin: 0px 10px;
   color: #fff;
@@ -31,17 +35,19 @@ span {
 
 #submit-button {
   margin: 15px auto;
-  display: block;
   text-align: center;
   border-radius: 5px;
-  height: 25px;
+  height: 50px;
   width: 75px;
+  font-size: 15px;
+  font-weight: bold;
 }
 
 /* Weather Info Section */
 
 #weather-info {
   text-align: center;
+  margin-top: 40px;
 }
 
 ul {
