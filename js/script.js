@@ -39,7 +39,9 @@ $(document).ready(function($) {
     temp.append(Math.round((data.main.temp-273.15)*1.8+32) + String.fromCharCode(176)); // Convert from Kelvin to Fahrenheit
     description.append(data.weather[0].description);
     wind.append('Wind: ' + data.wind.speed + '/mph');
-		
+		if (Math.round((data.main.temp-273.15)*1.8+32 >= 100)){
+			document.body.style.backgroundImage = "url('http://wallpapercave.com/wp/f2nbsPJ.jpg')";
+		}
 	})
  .fail(function() {
 
