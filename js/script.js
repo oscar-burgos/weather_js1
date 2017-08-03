@@ -19,7 +19,7 @@ weatherInfo.append(ul);
 
 console.log(ul);
 
-// Button click
+// Event Listener
 document.getElementById('submit-button').addEventListener('click', function(event) {
   event.preventDefault();
 
@@ -35,13 +35,19 @@ $(document).ready(function($) {
 	// Append data to li's in HTML
 	.done(function(data){
 		console.log(data);
+		document.getElementById('my-form').reset();
     city.append(data.name);
     temp.append(Math.round((data.main.temp-273.15)*1.8+32) + String.fromCharCode(176)); // Convert from Kelvin to Fahrenheit
     description.append(data.weather[0].description);
     wind.append('Wind: ' + data.wind.speed + '/mph');
-		if (Math.round((data.main.temp-273.15)*1.8+32 >= 100)){
-			document.body.style.backgroundImage = "url('http://wallpapercave.com/wp/f2nbsPJ.jpg')";
+
+		// Background colors
+		if (Math.round((data.main.temp-273.15)*1.8+32 >= 80)){
+			document.body.style.backgroundImage = "url('img/red.jpg')"; // red background
+		} else if (Math.round((data.main.temp-273.15)*1.8+32 < 80)) {
+			document.body.style.backgroundImage = "url('img/light-blue.jpg')"; // light blue background
 		}
+
 	})
  .fail(function() {
 
