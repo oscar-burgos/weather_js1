@@ -2,7 +2,7 @@
 // declare variables
 var weatherInfo = $('#weather-info'),
 		body = document.body,
-		// Create HTML elements and add classes
+		// Create HTML elements and add id's
 		ul = document.createElement('ul'),
 		city = document.createElement('li');
 			city.setAttribute('id', 'city'),
@@ -16,8 +16,6 @@ var weatherInfo = $('#weather-info'),
 // Append li's to ul and ul to weatherInfo div
 ul.append(city, temp, description, wind);
 weatherInfo.append(ul);
-
-console.log(ul);
 
 // Event Listener
 document.getElementById('submit-button').addEventListener('click', function(event) {
@@ -34,13 +32,16 @@ $(document).ready(function($) {
 
 	// Append data to li's in HTML
 	.done(function(data){
-		console.log(data);
+		// Data for city name
 		document.getElementById('city').innerHTML='';
     city.append(data.name);
+		// Data for temperature
 		document.getElementById('temp').innerHTML='';
     temp.append(Math.round((data.main.temp-273.15)*1.8+32) + String.fromCharCode(176)); // Convert from Kelvin to Fahrenheit
+		// Data for description
 		document.getElementById('description').innerHTML='';
     description.append(data.weather[0].description);
+		// Data for wind speed
 		document.getElementById('wind').innerHTML='';
     wind.append('Wind: ' + data.wind.speed + '/mph');
 
@@ -50,7 +51,7 @@ $(document).ready(function($) {
 		} else if (Math.round((data.main.temp-273.15)*1.8+32 < 80)) {
 			document.body.style.backgroundImage = "url('img/light-blue.jpg')"; // light blue background
 		}
-
+	// Alert message if city is entered wrong
 	})
  .fail(function() {
 
