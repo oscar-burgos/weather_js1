@@ -5,13 +5,13 @@ var weatherInfo = $('#weather-info'),
 		// Create HTML elements and add classes
 		ul = document.createElement('ul'),
 		city = document.createElement('li');
-			city.setAttribute('class', 'city'),
+			city.setAttribute('id', 'city'),
 		temp = document.createElement('li'),
-			temp.setAttribute('class', 'temp'),
+			temp.setAttribute('id', 'temp'),
 		description = document.createElement('li'),
-			description.setAttribute('class', 'description'),
+			description.setAttribute('id', 'description'),
 		wind = document.createElement('li'),
-			wind.setAttribute('class', 'wind');
+			wind.setAttribute('id', 'wind');
 
 // Append li's to ul and ul to weatherInfo div
 ul.append(city, temp, description, wind);
@@ -35,10 +35,13 @@ $(document).ready(function($) {
 	// Append data to li's in HTML
 	.done(function(data){
 		console.log(data);
-		document.getElementById('my-form').reset();
+		document.getElementById('city').innerHTML='';
     city.append(data.name);
+		document.getElementById('temp').innerHTML='';
     temp.append(Math.round((data.main.temp-273.15)*1.8+32) + String.fromCharCode(176)); // Convert from Kelvin to Fahrenheit
+		document.getElementById('description').innerHTML='';
     description.append(data.weather[0].description);
+		document.getElementById('wind').innerHTML='';
     wind.append('Wind: ' + data.wind.speed + '/mph');
 
 		// Background colors
@@ -54,7 +57,7 @@ $(document).ready(function($) {
  	alert("The city you entered does not seem to exist");
 
 	});
-
+document.getElementById('my-form').reset();
 });
 
 });
