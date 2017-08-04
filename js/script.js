@@ -19,7 +19,6 @@ weatherInfo.append(ul);
 
 var myKey = config.WEATHER_KEY;
 
-
 // Event Listener
 document.getElementById('submit-button').addEventListener('click', function(event) {
   event.preventDefault();
