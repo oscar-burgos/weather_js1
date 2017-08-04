@@ -18,7 +18,7 @@ ul.append(city, temp, description, wind);
 weatherInfo.append(ul);
 
 var myKey = config.WEATHER_KEY;
-		console.log(myKey);
+
 
 // Event Listener
 document.getElementById('submit-button').addEventListener('click', function(event) {
@@ -29,7 +29,7 @@ $(document).ready(function($) {
 	// Replace city in url with user input
 	$.ajax({
 		method: "GET",
-		url: 'http://api.openweathermap.org/data/2.5/weather?q=' + $('#location').val() + "&appid=bc0f4167e31574b40f700fb02b9935f0"
+		url: 'https://api.openweathermap.org/data/2.5/weather?q=' + $('#location').val() + "&appid=bc0f4167e31574b40f700fb02b9935f0"
 	})
 
 	// Append data to li's in HTML
