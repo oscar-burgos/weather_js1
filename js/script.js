@@ -17,13 +17,15 @@ var weatherInfo = $('#weather-info'),
 ul.append(city, temp, description, wind);
 weatherInfo.append(ul);
 
+var myKey = config.WEATHER_KEY;
+		console.log(myKey);
+
 // Event Listener
 document.getElementById('submit-button').addEventListener('click', function(event) {
   event.preventDefault();
 
 // Ajax call
 $(document).ready(function($) {
-
 	// Replace city in url with user input
 	$.ajax({
 		method: "GET",
