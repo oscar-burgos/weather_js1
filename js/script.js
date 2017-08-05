@@ -28,7 +28,7 @@ $(document).ready(function($) {
 	// Replace city in url with user input
 	$.ajax({
 		method: "GET",
-		url: 'https://api.openweathermap.org/data/2.5/weather?q=' + $('#location').val() + "&appid=bc0f4167e31574b40f700fb02b9935f0"
+		url: 'https://api.openweathermap.org/data/2.5/weather?q=' + $('#location').val() + "&appid=" + myKey
 	})
 
 	// Append data to li's in HTML
