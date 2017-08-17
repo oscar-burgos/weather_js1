@@ -48,7 +48,7 @@ $(document).ready(function($) {
 
 		// Background colors
 		if (Math.round((data.main.temp-273.15)*1.8+32 >= 80)){
-			document.body.style.backgroundImage = "url('img/red.jpg')"; // red background
+    	document.body.style.background = "-webkit-linear-gradient(top, red, orange)"; // red background
 		} else if (Math.round((data.main.temp-273.15)*1.8+32 < 80)) {
 			document.body.style.backgroundImage = "url('img/light-blue.jpg')"; // light blue background
 		}
