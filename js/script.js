@@ -47,7 +47,7 @@ $(document).ready(function($) {
 		document.getElementById('wind').innerHTML='';
     wind.append('Wind: ' + data.wind.speed + '/mph');
 
-		// Background colors
+		// Background Color Selector
 		if (degree >= 106) {
     	document.body.style.backgroundImage = "-webkit-linear-gradient(top, #d02020, #ff5d39, #fe9400)";
 		} else if (degree >=91 && degree <= 105) {
@@ -59,7 +59,7 @@ $(document).ready(function($) {
 		} else if (degree >=46 && degree <= 60) {
 			document.body.style.backgroundImage = "-webkit-linear-gradient(top, #3eecd1, #0095f9)";
 		} else if (degree >=33 && degree <= 45) {
-			document.body.style.backgroundImage = "-webkit-linear-gradient(top, #0095f9, #9aebf9)"; 
+			document.body.style.backgroundImage = "-webkit-linear-gradient(top, #0095f9, #9aebf9)";
 		} else {
 			document.body.style.backgroundImage = "-webkit-linear-gradient(top, #9aebf9, #dff4f4)";
 		}
