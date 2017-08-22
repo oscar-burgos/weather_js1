@@ -33,12 +33,13 @@ $(document).ready(function($) {
 
 	// Append data to li's in HTML
 	.done(function(data){
+		var degree = (Math.round((data.main.temp-273.15)*1.8+32));
 		// Data for city name
 		document.getElementById('city').innerHTML='';
     city.append(data.name);
 		// Data for temperature
 		document.getElementById('temp').innerHTML='';
-    temp.append(Math.round((data.main.temp-273.15)*1.8+32) + String.fromCharCode(176)); // Convert from Kelvin to Fahrenheit
+    temp.append(degree + String.fromCharCode(176)); // Convert from Kelvin to Fahrenheit
 		// Data for description
 		document.getElementById('description').innerHTML='';
     description.append(data.weather[0].description);
@@ -47,10 +48,20 @@ $(document).ready(function($) {
     wind.append('Wind: ' + data.wind.speed + '/mph');
 
 		// Background colors
-		if (Math.round((data.main.temp-273.15)*1.8+32 >= 80)){
-    	document.body.style.background = "-webkit-linear-gradient(top, red, orange)"; // red background
-		} else if (Math.round((data.main.temp-273.15)*1.8+32 < 80)) {
-			document.body.style.backgroundImage = "url('img/light-blue.jpg')"; // light blue background
+		if (degree >= 106) {
+    	document.body.style.backgroundImage = "-webkit-linear-gradient(top, #d02020, #ff5d39, #fe9400)";
+		} else if (degree >=91 && degree <= 105) {
+			document.body.style.backgroundImage = "-webkit-linear-gradient(top, #ff5d39, #fe9400)";
+		} else if (degree >=76 && degree <= 90) {
+			document.body.style.backgroundImage = "-webkit-linear-gradient(top, #fe9400, #f7e86b)";
+		} else if (degree >=61 && degree <= 75) {
+			document.body.style.backgroundImage = "-webkit-linear-gradient(top, #f7e86b, #3eecd1)";
+		} else if (degree >=46 && degree <= 60) {
+			document.body.style.backgroundImage = "-webkit-linear-gradient(top, #3eecd1, #0095f9)";
+		} else if (degree >=33 && degree <= 45) {
+			document.body.style.backgroundImage = "-webkit-linear-gradient(top, #0095f9, #9aebf9)"; 
+		} else {
+			document.body.style.backgroundImage = "-webkit-linear-gradient(top, #9aebf9, #dff4f4)";
 		}
 	// Alert message if city is entered wrong
 	})
