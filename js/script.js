@@ -19,6 +19,14 @@ weatherInfo.append(ul);
 
 var myKey = config.WEATHER_KEY;
 
+$(function(){
+	var x = 0;
+	setInterval(function(){
+		x -=1;
+		$('.background').css('background-position', x + 'px 0');
+	}, 50);
+});
+
 // Event Listener
 document.getElementById('submit-button').addEventListener('click', function(event) {
   event.preventDefault();
