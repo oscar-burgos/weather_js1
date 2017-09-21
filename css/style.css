@@ -1,6 +1,14 @@
 /* Header Section */
 
 body {
+
+}
+
+.background {
+  background-image: url('../img/landscape.svg');
+  background-position: bottom;
+  background-repeat: repeat-x;
+  height: 600px;
 }
 
 .container-fluid {
